@@ -14,7 +14,6 @@ export default function Register(props) {
     e.preventDefault();
     try {
       await registerUser(user, password, password2);
-      console.log("successfully register");
       router.push('/login');
     } catch (err) {
       setWarning(err.message);
