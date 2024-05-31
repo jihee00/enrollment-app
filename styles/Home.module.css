@@ -7,6 +7,27 @@
   min-height: 100vh;
 }
 
+.redNavbar {
+  background-color: rgb(165, 7, 7) !important;
+  padding: 10px 20px; 
+}
+
+.navbarBrand {
+  display: flex;
+  align-items: center;
+}
+
+.navbarBrand img {
+  max-height: 50px;
+}
+
+.navLinks .nav-link {
+  color: #fff !important;
+  font-size: 1.2em; /* Increase font size */
+  font-weight: bold; /* Make text bold */
+  margin-left: 20px; /* Add space between links */
+}
+
 .description {
   display: inherit;
   justify-content: inherit;
