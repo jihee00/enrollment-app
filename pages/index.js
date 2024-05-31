@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
+import Image from 'next/image';
 
 export default function Home() {
   return (
@@ -9,26 +10,34 @@ export default function Home() {
       <Layout>
       <header>
         <div className={styles.headerContent}>
-          <h1>Seneca Polytechnic</h1>
+          <h2>Welcome to Seneca Polytechnic</h2>
         </div>
       </header>
       <main>
         <section className={styles.hero}>
-          <h2>Welcome to Seneca Polytechnic</h2>
-          <p>Explore our programs and services</p>
+        <div className={styles.heroImageContainer}>
+          <Image 
+              src="/images/student-home.jpg" 
+              alt="Student Home Image" 
+              layout="fill" 
+              objectFit="cover" 
+              quality={100} 
+              className={styles.heroImage}
+            />
+          </div>
         </section>
         <section className={styles.content}>
           <div className={styles.card}>
-            <h3>Programs</h3>
-            <p>Discover our wide range of programs</p>
+            <h3>Build Schedule</h3>
+            <p>Manage Classes</p>
           </div>
           <div className={styles.card}>
-            <h3>Apply Now</h3>
-            <p>Join us and start your journey</p>
+            <h3>Academic Records</h3>
+            <p>GPA Calculator</p>
           </div>
           <div className={styles.card}>
             <h3>Contact Us</h3>
-            <p>Get in touch for more information</p>
+            <p>Contact Student Advisor</p>
           </div>
         </section>
       </main>

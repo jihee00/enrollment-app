@@ -11,7 +11,7 @@ export default function MainNav() {
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav" className={styles.navLinks}>
-        <Nav className="ml-auto">
+        <Nav className={styles.navLinks}>
           <Nav.Link href="/register" className={styles.navLink}>Register</Nav.Link>
           <Nav.Link href="/login" className={styles.navLink}>Login</Nav.Link>
         </Nav>
