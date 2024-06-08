@@ -41,10 +41,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      <footer>
-        <p>&copy; 2024 Seneca Polytechnic</p>
-      </footer>
-
       </Layout>
     </>
   );

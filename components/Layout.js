@@ -1,5 +1,6 @@
-import { Container } from "react-bootstrap";
-import MainNav from "./MainNav";
+import { Container } from 'react-bootstrap';
+import MainNav from './MainNav';
+import Footer from './Footer';
 
 export default function Layout(props) {
   return (
@@ -7,6 +8,8 @@ export default function Layout(props) {
       <MainNav />
       <br />
       <Container>{props.children}</Container>
+      <br />
+      <Footer />
       <br />
     </>
   );
