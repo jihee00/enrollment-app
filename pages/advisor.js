@@ -6,7 +6,7 @@ export default function Advisor() {
   const router = useRouter();
   const [advisors, setAdvisors] = useState([
     { id: 132125432, name: 'John Johnson', email: 'john.johnson@example.com', phone: '647-887-3654', sin: '123-456-789' },
-    { id: 221546454, name: 'James Smith', email: 'james.smith@example.com', phone: '416-553-9837', sin: '987-654-321' },
+    { id: 221546454, name: 'James Smith', email: 'james.smith@example.com', phone: '416-553-9837', sin: '987-654-321' }
   ]);
 
   return (
