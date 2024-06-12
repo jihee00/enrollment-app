@@ -1,13 +1,11 @@
 import React from 'react';
 import Link from 'next/link';
-import Layout from '../components/Layout';
 import styles from '../styles/Home.module.css';
 import Image from 'next/image';
 
 export default function Home() {
   return (
     <>
-      <Layout>
       <header>
         <div className={styles.headerContent}>
           <h2>Welcome to Seneca Polytechnic</h2>
@@ -41,7 +39,6 @@ export default function Home() {
           </div>
         </section>
       </main>
-      </Layout>
     </>
   );
 }
