@@ -23,7 +23,7 @@ export default function MainNav() {
             </Dropdown.Toggle>
             <Dropdown.Menu>
               <Dropdown.Item href="/profile">Your Profile</Dropdown.Item>
-              <Dropdown.Item href="/">Edit Profile</Dropdown.Item>
+              <Dropdown.Item href="/editProfile">Edit Profile</Dropdown.Item>
               <Dropdown.Item href="/">Sign Out</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
