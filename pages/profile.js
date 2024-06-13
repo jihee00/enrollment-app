@@ -16,14 +16,14 @@ const ProfilePage = () => {
           <Card.Body className="px-4 py-5">
               <Row>
                 <Col md={4} className="text-center">
-                <h1 className="text-3xl text-center font-bold mb-4">Your Profile</h1>
+                {/* <h1 className="text-3xl text-center font-bold mb-4">Your Profile</h1> */}
                   <div className="mb-4">
                     <Image
                       className="rounded-circle"
                       src={profileDefault}
                       alt="User"
-                      width={192}
-                      height={192}
+                      width={180}
+                      height={180}
                     />              
                   </div>
                   <h4 className="text-2xl mb-4"><span className="font-bold">Name: </span>John Doe</h4>
@@ -34,11 +34,11 @@ const ProfilePage = () => {
                   <Card className="mb-4">
                     <Card.Body>
                       <div>
-                        <Card.Text>ID: {profile.id}</Card.Text>
-                        <Card.Text>Phone: {profile.phone}</Card.Text>
-                        <Card.Text>Address: {profile.address}</Card.Text>
-                        <Card.Text>Emergency Contacts: {profile.emergencyContacts}</Card.Text>
-                        <Card.Text>SIN/ITN Information: {profile.sin}</Card.Text>
+                        <Card.Text><strong>ID:</strong> {profile.id}</Card.Text>
+                        <Card.Text><strong>Phone:</strong> {profile.phone}</Card.Text>
+                        <Card.Text><strong>Address:</strong> {profile.address}</Card.Text>
+                        <Card.Text><strong>Emergency Contacts:</strong> {profile.emergencyContacts}</Card.Text>
+                        <Card.Text><strong>SIN/ITN Information:</strong> {profile.sin}</Card.Text>
                         <div className="d-flex justify-content-center mt-3">
                           <Button href="/editProfile" className="btn-black mr-2">
                             Edit

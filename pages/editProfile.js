@@ -45,7 +45,7 @@ const EditProfile = () => {
           <h1 className="text-3xl text-center font-bold mb-4">Edit Profile</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label>ID</Form.Label>
+              <Form.Label><strong>ID</strong></Form.Label>
               <Form.Control 
                 type="text" 
                 name="id"
@@ -54,7 +54,7 @@ const EditProfile = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Phone</Form.Label>
+              <Form.Label><strong>Phone</strong></Form.Label>
               <Form.Control 
                 type="text" 
                 name="phone"
@@ -63,7 +63,7 @@ const EditProfile = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Address</Form.Label>
+              <Form.Label><strong>Address</strong></Form.Label>
               <Form.Control 
                 type="text" 
                 name="address"
@@ -72,7 +72,7 @@ const EditProfile = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>Emergency Contacts</Form.Label>
+              <Form.Label><strong>Emergency Contacts</strong></Form.Label>
               <Form.Control 
                 type="text" 
                 name="emergencyContacts"
@@ -81,7 +81,7 @@ const EditProfile = () => {
               />
             </Form.Group>
             <Form.Group className="mb-3">
-              <Form.Label>SIN/ITN Information</Form.Label>
+              <Form.Label><strong>SIN/ITN Information</strong></Form.Label>
               <Form.Control 
                 type="text" 
                 name="sin"
