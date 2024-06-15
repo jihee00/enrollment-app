@@ -1,7 +1,7 @@
-import React from 'react';
-import Link from 'next/link';
-import styles from '../styles/Home.module.css';
-import Image from 'next/image';
+import React from "react";
+import Link from "next/link";
+import styles from "../styles/Home.module.css";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -13,13 +13,13 @@ export default function Home() {
       </header>
       <main>
         <section className={styles.hero}>
-        <div className={styles.heroImageContainer}>
-          <Image 
-              src="/images/student-home.jpg" 
-              alt="Student Home Image" 
-              layout="fill" 
-              objectFit="cover" 
-              quality={100} 
+          <div className={styles.heroImageContainer}>
+            <Image
+              src="/images/student-home.jpg"
+              alt="Student Home Image"
+              layout="fill"
+              objectFit="cover"
+              quality={100}
               className={styles.heroImage}
             />
           </div>
@@ -34,8 +34,13 @@ export default function Home() {
             <p>GPA Calculator</p>
           </div>
           <div className={styles.card}>
-            <h3>Contact Us</h3>
-            <p>Contact Student Advisor</p>
+            <Link
+              href="/advisor"
+              style={{ textDecoration: "none", color: "black" }}
+            >
+              <h3>Contact Us</h3>
+              <p>Contact Student Advisor</p>
+            </Link>
           </div>
         </section>
       </main>

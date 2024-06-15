@@ -350,38 +350,23 @@
 }
 
 /* advisor */
-.advisor{
+.advisorCard{
+  width: 100%;
+  height: 100%;
+  background-color: #f3c5c5;
+}
+.advisorContent{
   display: flex;
 }
-
+.advisorCardBody{
+  padding:20px;
+}
 .advisorInfo{
-  margin: 20px 30px 50px 0px;
+  width: 100%;
+  margin-left: 20px;
 }
-
 .advisorImage{
-  margin-right: 20px;
+  width: 100%;
+  margin: 20px 10px 10px 10px;
 }
 
-.studentInfo{
-  width: 550px;
-  padding: 20px;
-  background-color: rgb(206, 206, 206);
-  text-align: center;
-}
-
-.studentImage{
-  margin-bottom: 20px;
-}
-
-.studentInfo dt{
-  text-align: right;
-  width: 150px;
-  margin: 0px;
-  
-}
-
-.studentInfo dd{
-  text-align: left;
-  width: 200px;
-  margin: 0px;
-}
