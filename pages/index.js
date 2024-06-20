@@ -25,8 +25,13 @@ export default function Home() {
             <p>Manage Classes</p>
           </div>
           <div className={styles.card}>
+            <Link
+              href="/academic-records"
+              style={{ textDecoration: "none", color: "black" }}
+            >
             <h3>Academic Records</h3>
             <p>GPA Calculator</p>
+            </Link>
           </div>
           <div className={styles.card}>
             <Link
