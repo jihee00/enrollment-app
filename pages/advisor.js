@@ -12,9 +12,10 @@ export default function Advisor() {
       id: 1,
       title: "Student Advisor",
       program: "Computer Programming/Analysis",
-      name: "John Johnson",
-      email: "john.johnson@example.com",
+      name: "Emily Clark",
+      email: "emily.clark@example.com",
       phone: "647-887-3654",
+      image: "/images/advisor1.png",
     },
     {
       id: 2,
@@ -23,6 +24,7 @@ export default function Advisor() {
       name: "James Smith",
       email: "james.smith@example.com",
       phone: "416-553-9837",
+      image: "/images/advisor2.png",
     },
   ]);
 
@@ -37,7 +39,7 @@ export default function Advisor() {
                 <div className={styles.advisorContent}>
                   <div className={styles.advisorImg}>
                     <Card.Img
-                      src="images/profile.png"
+                      src={advisor.image}
                       alt={advisor.name}
                       className={styles.advisorImage}
                     />
