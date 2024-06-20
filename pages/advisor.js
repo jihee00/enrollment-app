@@ -27,7 +27,7 @@ export default function Advisor() {
   ]);
 
   return (
-    <Container>
+    <Container className="py-5">
       <Row className="gy-4">
         {advisors.map((advisor) => (
           <Col key={advisor.id} xs={12} md={6} lg={4}>

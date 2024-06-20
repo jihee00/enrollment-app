@@ -102,12 +102,20 @@ body {
     rgb(var(--background-start-rgb));
 } */
 
-header {
+/* header {
   background-color: #000000;
   color: #fff;
   padding: 10px 0;
   text-align: center;
   width: 100%;
+} */
+
+header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
 }
 
 footer {

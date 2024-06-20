@@ -6,11 +6,11 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <header>
+      {/* <header>
         <div className={styles.headerContent}>
           <h2>Welcome to Seneca Polytechnic</h2>
         </div>
-      </header>
+      </header> */}
       <main>
         <section className={styles.hero}>
           <div className={styles.heroImageContainer}>
