@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Table, Button } from 'react-bootstrap';
+import Link from 'next/link';
 import styles from '@/styles/Home.module.css';
 
 const AcademicRecordsPage = () => {
@@ -33,6 +34,7 @@ const AcademicRecordsPage = () => {
     },
   ]);
 
+  
   return (
     <Container className="py-5">
       <h1 className="text-3xl text-center font-bold mb-4">Academic Records</h1>
@@ -63,9 +65,9 @@ const AcademicRecordsPage = () => {
             </tbody>
           </Table>
           <div className="d-flex justify-content-center mt-3">
-            <Button href="/academic-records" className="btn-black mr-2">
-              GPA Calculator
-            </Button>
+            <Link href="/academic-records/gpa-calculator" passHref>
+              <Button className="btn-black mr-2">GPA Calculator</Button>
+            </Link>
           </div>
         </Card.Body>
       </Card>
