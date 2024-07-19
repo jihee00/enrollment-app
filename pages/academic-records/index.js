@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Card, Table, Button } from 'react-bootstrap';
+// AcademicRecordsPage.js
+
+import React, { useState, useEffect } from 'react';
+import { Container, Card, Table, Button } from 'react-bootstrap';
 import Link from 'next/link';
-import styles from '@/styles/Home.module.css';
 
 const AcademicRecordsPage = () => {
   const [records, setRecords] = useState([
@@ -34,7 +35,24 @@ const AcademicRecordsPage = () => {
     },
   ]);
 
-  
+  const [sortedRecords, setSortedRecords] = useState([]);
+
+  useEffect(() => {
+    sortRecordsBySemester();
+  }, []);
+
+  const sortRecordsBySemester = () => {
+    const sorted = [...records].sort((a, b) => {
+      // Assuming 'term' is in the format 'Season Year', e.g., 'Winter 2024'
+      const termA = a.term.toLowerCase();
+      const termB = b.term.toLowerCase();
+      if (termA < termB) return -1;
+      if (termA > termB) return 1;
+      return 0;
+    });
+    setSortedRecords(sorted);
+  };
+
   return (
     <Container className="py-5">
       <h1 className="text-3xl text-center font-bold mb-4">Academic Records</h1>
@@ -52,7 +70,7 @@ const AcademicRecordsPage = () => {
               </tr>
             </thead>
             <tbody>
-              {records.map((record) => (
+              {sortedRecords.map((record) => (
                 <tr key={record.id}>
                   <td>{record.class}</td>
                   <td>{record.description}</td>
@@ -68,6 +86,9 @@ const AcademicRecordsPage = () => {
             <Link href="/academic-records/gpa-calculator" passHref>
               <Button className="btn-black mr-2">GPA Calculator</Button>
             </Link>
+            <Button className="btn-black" onClick={sortRecordsBySemester}>
+              Sort by Semester
+            </Button>
           </div>
         </Card.Body>
       </Card>
