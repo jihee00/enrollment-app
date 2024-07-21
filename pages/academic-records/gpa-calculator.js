@@ -1,13 +1,18 @@
-import { useState } from 'react';
-import styles from '../../styles/gpa-calculator.module.css'; // Importing CSS module
+import { useState } from "react";
+import styles from "../../styles/gpa-calculator.module.css"; // Importing CSS module
 
 const GPACalculator = () => {
-  const [courses, setCourses] = useState([{ courseName: 'Course1', grade: '', credits: '3.00' }]);
+  const [courses, setCourses] = useState([
+    { courseName: "Course1", grade: "", credits: "3.00" },
+  ]);
   const [gpa, setGpa] = useState(null);
 
   const handleAddCourse = () => {
     const newCourseName = `Course${courses.length + 1}`;
-    setCourses([...courses, { courseName: newCourseName, grade: '', credits: '3.00' }]);
+    setCourses([
+      ...courses,
+      { courseName: newCourseName, grade: "", credits: "3.00" },
+    ]);
   };
 
   const handleRemoveCourse = (index) => {
@@ -37,19 +42,19 @@ const GPACalculator = () => {
     });
 
     const gpa = totalPoints / totalCredits;
-    setGpa(totalPoints && totalCredits ? gpa.toFixed(2) : '0.00');
+    setGpa(totalPoints && totalCredits ? gpa.toFixed(2) : "0.00");
   };
 
   const getGradeValue = (grade) => {
     const gradeMap = {
-      'A+': 4.0,
-      'A': 3.5,
-      'B+': 3.0,
-      'B': 2.5,
-      'C+': 2.0,
-      'C': 1.5,
-      'D': 1.0,
-      'F': 0.0,
+      "A+": 4.0,
+      A: 3.5,
+      "B+": 3.0,
+      B: 2.5,
+      "C+": 2.0,
+      C: 1.5,
+      D: 1.0,
+      F: 0.0,
     };
     return gradeMap[grade.toUpperCase()] || 0.0;
   };
@@ -74,7 +79,9 @@ const GPACalculator = () => {
                   type="text"
                   placeholder="Course Name"
                   value={course.courseName}
-                  onChange={(e) => handleChange(index, 'courseName', e.target.value)}
+                  onChange={(e) =>
+                    handleChange(index, "courseName", e.target.value)
+                  }
                   className={styles.input}
                 />
               </td>
@@ -83,7 +90,7 @@ const GPACalculator = () => {
                   type="text"
                   placeholder="Grade"
                   value={course.grade}
-                  onChange={(e) => handleChange(index, 'grade', e.target.value)}
+                  onChange={(e) => handleChange(index, "grade", e.target.value)}
                   className={styles.input}
                 />
               </td>
@@ -92,12 +99,17 @@ const GPACalculator = () => {
                   type="text"
                   placeholder="Credits"
                   value={course.credits}
-                  onChange={(e) => handleChange(index, 'credits', e.target.value)}
+                  onChange={(e) =>
+                    handleChange(index, "credits", e.target.value)
+                  }
                   className={styles.input}
                 />
               </td>
               <td>
-                <button onClick={() => handleRemoveCourse(index)} className={styles.button}>
+                <button
+                  onClick={() => handleRemoveCourse(index)}
+                  className={styles.button}
+                >
                   Remove
                 </button>
               </td>
@@ -105,7 +117,7 @@ const GPACalculator = () => {
           ))}
         </tbody>
       </table>
-      <div className='styles.buttonContainer'>
+      <div className="styles.buttonContainer">
         <button onClick={handleAddCourse} className={styles.button}>
           Add Course
         </button>
@@ -113,8 +125,16 @@ const GPACalculator = () => {
           Calculate GPA
         </button>
       </div>
-      
-      {gpa !== null && <h2>Your GPA: {gpa}</h2>}
+
+      {gpa !== null && (
+        <div>
+          {parseFloat(gpa) === 0.0 ? (
+            <h4>Please enter your grade In A+, A, B+, B, and etc.</h4>
+          ) : (
+            <h2>Your GPA: {gpa}</h2>
+          )}
+        </div>
+      )}
     </div>
   );
 };

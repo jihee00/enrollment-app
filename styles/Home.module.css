@@ -378,3 +378,26 @@
   margin-top: 20px;
 }
 
+/*Schedule*/
+.ScheduleCard {
+  margin-top: 20px; /* Add margin to the top of each card */
+  background-color: #e0e0e0; /* Light grey background */
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.ScheduleCardBody {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.ScheduleContent {
+  margin-top: 10px;
+}
+
+.ScheduleInfo {
+  font-size: 16px;
+  color: #666;
+}
+  
