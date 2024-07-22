@@ -13,7 +13,6 @@ export default function Home() {
               src="/images/student-home.jpg"
               alt="Student Home Image"
               fill
-              objectFit="cover"
               quality={100}
               className={styles.heroImage}
             />
