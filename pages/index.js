@@ -21,9 +21,14 @@ export default function Home() {
         </section>
         <section className={styles.content}>
           <div className={styles.card}>
+          <Link
+              href="/manage-schedule"
+              style={{ textDecoration: "none", color: "black" }}
+            >
             <h3>Build Schedule</h3>
             <p>Manage Classes</p>
-          </div>
+            </Link>
+         </div>
           <div className={styles.card}>
             <Link
               href="/academic-records"
