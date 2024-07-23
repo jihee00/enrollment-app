@@ -7,35 +7,36 @@ const EditProfile = () => {
   const { profile, updateProfile } = useProfile();
   const router = useRouter();
 
-  const handleIdChange = (e) => {
-    const newProfile = { ...profile, id: e.target.value };
+  if (!profile) return <div>Loading...</div>
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    const newProfile = { ...profile, [name]: value };
     updateProfile(newProfile);
   };
 
-  const handlePhoneChange = (e) => {
-    const newProfile = { ...profile, phone: e.target.value };
-    updateProfile(newProfile);
-  };
-
-  const handleAddressChange = (e) => {
-    const newProfile = { ...profile, address: e.target.value };
-    updateProfile(newProfile);
-  };
-
-  const handleEmergencyContactsChange = (e) => {
-    const newProfile = { ...profile, emergencyContacts: e.target.value };
-    updateProfile(newProfile);
-  };
-
-  const handleSinChange = (e) => {
-    const newProfile = { ...profile, sin: e.target.value };
-    updateProfile(newProfile);
-  };
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     console.log('Profile updated:', profile);
-    router.push('/profile');
+
+    try {
+      const response = await fetch('/api/students/profile', {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(profile),
+      });
+
+      if (response.ok) {
+        console.log('Profile successfully updated');
+        router.push('/profile');
+      } else {
+        console.error('Failed to update profile');
+      }
+    } catch (error) {
+      console.error('Error updating profile:', error);
+    }
   };
 
   return (
@@ -45,12 +46,30 @@ const EditProfile = () => {
           <h1 className="text-3xl text-center font-bold mb-4">Edit Profile</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group className="mb-3">
-              <Form.Label><strong>ID</strong></Form.Label>
+              <Form.Label><strong>Name</strong></Form.Label>
               <Form.Control 
                 type="text" 
-                name="id"
-                value={profile.id} 
-                onChange={handleIdChange} 
+                name="name"
+                value={profile.name || ''} 
+                readOnly
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label><strong>Email</strong></Form.Label>
+              <Form.Control 
+                type="text" 
+                name="email"
+                value={profile.email || ''} 
+                readOnly
+              />
+            </Form.Group>
+            <Form.Group className="mb-3">
+              <Form.Label><strong>Student ID</strong></Form.Label>
+              <Form.Control 
+                type="text" 
+                name="studentId"
+                value={profile.studentId || ''} 
+                readOnly
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -58,8 +77,8 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="phone"
-                value={profile.phone} 
-                onChange={handlePhoneChange}
+                value={profile.phone || ''} 
+                onChange={handleInputChange}
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -67,8 +86,8 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="address"
-                value={profile.address} 
-                onChange={handleAddressChange} 
+                value={profile.address || ''} 
+                onChange={handleInputChange} 
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -76,8 +95,8 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="emergencyContacts"
-                value={profile.emergencyContacts} 
-                onChange={handleEmergencyContactsChange} 
+                value={profile.emergencyContacts || ''} 
+                onChange={handleInputChange} 
               />
             </Form.Group>
             <Form.Group className="mb-3">
@@ -85,8 +104,8 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="sin"
-                value={profile.sin} 
-                onChange={handleSinChange} 
+                value={profile.sin || ''} 
+                onChange={handleInputChange} 
               />
             </Form.Group>
             <div className="d-flex justify-content-center mt-3">
@@ -99,6 +118,6 @@ const EditProfile = () => {
       </Card>
     </Container>
   );
-}
+};
 
 export default EditProfile;

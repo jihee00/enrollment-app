@@ -1,0 +1,13 @@
+[
+  {
+    "name": "Emily Thompson",
+    "email": "test@example.com",
+    "studentId": "123456789",
+    "phone": "123/123-1234",
+    "address": "1750 Finch Ave E, North York, ON M2J 2X5",
+    "emergencyContacts": "234/567-6789",
+    "sin": "123-456-789",
+    "photo": "https://storage.cloud.google.com/enrollment_app/profile1.png",
+    "schedule": []
+  }
+]

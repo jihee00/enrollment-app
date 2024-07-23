@@ -1,13 +1,14 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import Image from 'next/image';
-import profileDefault from '@/public/images/profile1.png';
+import profileDefault from '@/public/images/profile.png';
 import styles from '@/styles/Home.module.css'; 
 import { useProfile } from './profileContext';
 
-
 const ProfilePage = () => {
   const { profile } = useProfile();
+
+  if (!profile) return <div>Loading...</div>
 
   return (
     <>
@@ -19,21 +20,21 @@ const ProfilePage = () => {
                   <div className="mb-4">
                     <Image
                       className="rounded-circle"
-                      src={profileDefault}
+                      src={profile.photo || profileDefault}
                       alt="User"
                       width={180}
                       height={180}
                     />              
                   </div>
-                  <h4 className="text-2xl mb-4"><span className="font-bold">Name: </span>Sophia Martinez</h4>
-                  <h4 className="text-2xl"><span className="font-bold">Email: </span>martinez@example.com</h4>
+                  <h4 className="text-2xl mb-4"><span className="font-bold">Name: </span>{profile.name}</h4>
+                  <h4 className="text-2xl"><span className="font-bold">Email: </span>{profile.email}</h4>
                 </Col>
                 <Col md={8}>
                   <h4 className="text-xl font-semibold mb-4">Personal Details</h4>
                   <Card className="mb-4">
                     <Card.Body>
                       <div>
-                        <Card.Text><strong>ID:</strong> {profile.id}</Card.Text>
+                        <Card.Text><strong>ID:</strong> {profile.studentId}</Card.Text>
                         <Card.Text><strong>Phone:</strong> {profile.phone}</Card.Text>
                         <Card.Text><strong>Address:</strong> {profile.address}</Card.Text>
                         <Card.Text><strong>Emergency Contacts:</strong> {profile.emergencyContacts}</Card.Text>
