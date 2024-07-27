@@ -7,20 +7,40 @@ export default function ManageSchedule() {
   const [courses, setCourses] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState('');
   const [selectedCourse, setSelectedCourse] = useState('');
+  const [availability, setAvailability] = useState(null);
+  const [eligibility, setEligibility] = useState(null);
 
   useEffect(() => {
     async function fetchData() {
       const studentsRes = await axios.get('/api/students');
       setStudents(studentsRes.data);
-      
+
       const coursesRes = await axios.get('/api/courses');
       setCourses(coursesRes.data);
     }
     fetchData();
   }, []);
 
-  const handleAddCourse = async () => {
+  const checkAvailabilityAndEligibility = async (studentId, courseId) => {
+    try {
+      const availabilityRes = await axios.post('/api/courses/checkAvailability', { courseId });
+      setAvailability(availabilityRes.data.available);
+
+      const eligibilityRes = await axios.post('/api/courses/checkEligibility', { studentId, courseId });
+      setEligibility(eligibilityRes.data.eligible);
+    } catch (error) {
+      console.error('Error checking availability or eligibility:', error);
+    }
+  };
+
+  useEffect(() => {
     if (selectedStudent && selectedCourse) {
+      checkAvailabilityAndEligibility(selectedStudent, selectedCourse);
+    }
+  }, [selectedStudent, selectedCourse]);
+
+  const handleAddCourse = async () => {
+    if (selectedStudent && selectedCourse && availability && eligibility) {
       await axios.post('/api/students/addCourse', { studentId: selectedStudent, courseId: selectedCourse });
       const studentsRes = await axios.get('/api/students');
       setStudents(studentsRes.data);
@@ -63,7 +83,7 @@ export default function ManageSchedule() {
         </label>
       </div>
 
-      <button onClick={handleAddCourse}>Add Course</button>
+      <button onClick={handleAddCourse} disabled={!availability || !eligibility}>Add Course</button>
 
       {selectedStudent && (
         <div>
@@ -78,6 +98,9 @@ export default function ManageSchedule() {
           </ul>
         </div>
       )}
+
+      {availability === false && <p>The selected course is not available.</p>}
+      {eligibility === false && <p>The student is not eligible for the selected course.</p>}
     </div>
   );
 }
