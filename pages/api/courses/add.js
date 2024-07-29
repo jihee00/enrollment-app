@@ -1,20 +1,24 @@
-// pages/api/courses/add.js
 import connectToDatabase from '../../../lib/mongodb';
 import Course from '../../../models/Course';
 
 export default async function handler(req, res) {
-  const { name, code } = req.body;
+  if (req.method !== 'POST') {
+    return res.status(405).json({ message: 'Method not allowed' });
+  }
 
-  if (!name || !code) {
-    return res.status(400).json({ message: 'Name and code are required' });
+  const { courses } = req.body;
+
+  if (!Array.isArray(courses) || courses.length === 0) {
+    return res.status(400).json({ message: 'Courses array is required' });
   }
 
   try {
     await connectToDatabase();
-    const course = new Course({ name, code });
-    await course.save();
-    res.status(201).json(course);
+
+    const createdCourses = await Course.insertMany(courses);
+    res.status(200).json(createdCourses);
   } catch (error) {
-    res.status(500).json({ message: 'Error adding course', error });
+    console.error('Error adding courses:', error);
+    res.status(500).json({ message: 'Error adding courses', error });
   }
 }
