@@ -1,9 +1,10 @@
+'use client';
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import Image from 'next/image';
 import profileDefault from '@/public/images/profile.png';
 import styles from '@/styles/Home.module.css'; 
-import { useProfile } from './profileContext';
+import { useProfile } from '@/lib/profileContext';
 
 const ProfilePage = () => {
   const { profile } = useProfile();
@@ -21,13 +22,13 @@ const ProfilePage = () => {
                     <Image
                       className="rounded-circle"
                       src={profile.photo || profileDefault}
-                      alt="User"
+                      alt="Student photo"
                       width={180}
                       height={180}
                     />              
                   </div>
                   <h4 className="text-2xl mb-4"><span className="font-bold">Name: </span>{profile.name}</h4>
-                  <h4 className="text-2xl"><span className="font-bold">Email: </span>{profile.email}</h4>
+                  <h4 className="text-2xl"><span className="font-bold">Email: </span>{profile.userName}</h4>
                 </Col>
                 <Col md={8}>
                   <h4 className="text-xl font-semibold mb-4">Personal Details</h4>

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router'; 
-import { useProfile } from './profileContext';
+import { useProfile } from '@/lib/profileContext';
 
 const EditProfile = () => {
   const { profile, updateProfile } = useProfile();

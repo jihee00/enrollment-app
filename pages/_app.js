@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import "@/styles/globals.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { ProfileProvider } from './profile/profileContext';
+import { ProfileProvider } from '@/lib/profileContext';
 import { AuthProvider } from '@/lib/authContext';
 import Head from 'next/head';
 

@@ -31,7 +31,7 @@ export default function Register(props) {
         </Card>
         <Form onSubmit={handleSubmit}>
           <Form.Group className="mb-3">
-            <Form.Label htmlFor="userName">Input Username:</Form.Label>
+            <Form.Label htmlFor="userName">Input User Email:</Form.Label>
             <Form.Control
               type="text"
               value={user}

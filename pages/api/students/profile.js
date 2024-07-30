@@ -9,26 +9,26 @@ export default async function handler(req, res) {
   switch (method) {
     case 'GET':
       try {
-        const student = await Student.findOne({ email: req.query.email });
-        if (!student) {
+        const studentProfile = await Student.findOne({ userName: req.query.userName });
+        if (!studentProfile) {
           return res.status(404).json({ success: false, message: 'Student not found' });
         }
-        res.status(200).json({ success: true, data: student });
+        res.status(200).json({ success: true, data: studentProfile });
       } catch (error) {
         res.status(400).json({ success: false, error });
       }
       break;
     case 'PUT':
       try {
-        const student = await Student.findOneAndUpdate(
-          { email: req.query.email },
+        const studentProfile = await Student.findOneAndUpdate(
+          { userName: req.query.userName  },
           req.body,
           { new: true }
         );
-        if (!student) {
+        if (!studentProfile) {
           return res.status(404).json({ success: false, message: 'Student not found' });
         }
-        res.status(200).json({ success: true, data: student });
+        res.status(200).json({ success: true, data: studentProfile });
       } catch (error) {
         res.status(400).json({ success: false, error });
       }

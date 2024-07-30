@@ -36,7 +36,7 @@ export default function LoginPage() {
                     </Alert>
                 )}
                 <label style={{ marginBottom: '10px' }}>
-                    Username:
+                    User Email:
                     <input
                         type="text"
                         value={username}
