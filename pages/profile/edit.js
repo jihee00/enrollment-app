@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router'; 
 import { useProfile } from '@/lib/profileContext';
+import Loading from '@/components/Loading';
 
 const EditProfile = () => {
   const { profile, updateProfile } = useProfile();
@@ -15,7 +16,7 @@ const EditProfile = () => {
     }
   }, [profile]);
 
-  if (!localProfile) return <div>Loading...</div>
+  if (!localProfile) return <Loading />;
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;

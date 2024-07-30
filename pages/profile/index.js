@@ -5,12 +5,13 @@ import Image from 'next/image';
 import profileDefault from '@/public/images/profile.png';
 import styles from '@/styles/Home.module.css'; 
 import { useProfile } from '@/lib/profileContext';
+import Loading from '@/components/Loading';
 
 const ProfilePage = () => {
   const { profile } = useProfile();
 
-  if (!profile) return <div>Loading...</div>
-
+  if (!profile) return <Loading />;
+  
   return (
     <>
       <Container className="py-5">

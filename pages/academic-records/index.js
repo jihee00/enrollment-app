@@ -5,10 +5,12 @@ import { Container, Card, Table, Button } from 'react-bootstrap';
 import Link from 'next/link';
 import axios from 'axios';
 import { useAuth } from '@/lib/authContext';
+import Loading from '@/components/Loading';
 
 const AcademicRecordsPage = () => {
   const { authenticated, userName } = useAuth();
   const [records, setRecords] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (authenticated && userName) {
@@ -17,6 +19,7 @@ const AcademicRecordsPage = () => {
   }, [authenticated, userName]);
 
   const fetchAcademicRecords = async () => {
+    setIsLoading(true);
     try {
       const response = await axios.get('/api/students/academic-record', {
         params: { userName }
@@ -28,6 +31,7 @@ const AcademicRecordsPage = () => {
     } catch (error) {
       console.error('Error fetching academic records:', error);
     }
+    setIsLoading(false);
   };
 
   const sortRecordsBySemester = (recordsToSort) => {
@@ -46,6 +50,10 @@ const AcademicRecordsPage = () => {
       return seasonOrder[seasonA] - seasonOrder[seasonB];
     });
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <Container className="py-5">
