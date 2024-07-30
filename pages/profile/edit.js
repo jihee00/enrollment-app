@@ -1,39 +1,37 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Card, Form, Button } from 'react-bootstrap';
 import { useRouter } from 'next/router'; 
 import { useProfile } from '@/lib/profileContext';
 
 const EditProfile = () => {
   const { profile, updateProfile } = useProfile();
+  const [localProfile, setLocalProfile] = useState(null);
   const router = useRouter();
+
+  useEffect(() => {
+    if (profile) {
+      setLocalProfile(profile);
+    }
+  }, [profile]);
 
   if (!profile) return <div>Loading...</div>
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    const newProfile = { ...profile, [name]: value };
-    updateProfile(newProfile);
+    setLocalProfile((prevProfile) => ({
+      ...prevProfile,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Profile updated:', profile);
+    console.log('Profile updated:', localProfile);
 
     try {
-      const response = await fetch('/api/students/profile', {
-        method: 'PUT',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(profile),
-      });
-
-      if (response.ok) {
-        console.log('Profile successfully updated');
-        router.push('/profile');
-      } else {
-        console.error('Failed to update profile');
-      }
+      await updateProfile(localProfile);
+      console.log('Profile successfully updated');
+      router.push('/profile');
     } catch (error) {
       console.error('Error updating profile:', error);
     }
@@ -50,7 +48,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="name"
-                value={profile.name || ''} 
+                value={localProfile.name || ''} 
                 readOnly
               />
             </Form.Group>
@@ -59,7 +57,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="email"
-                value={profile.email || ''} 
+                value={localProfile.userName || ''} 
                 readOnly
               />
             </Form.Group>
@@ -68,7 +66,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="studentId"
-                value={profile.studentId || ''} 
+                value={localProfile.studentId || ''} 
                 readOnly
               />
             </Form.Group>
@@ -77,7 +75,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="phone"
-                value={profile.phone || ''} 
+                value={localProfile.phone || ''} 
                 onChange={handleInputChange}
               />
             </Form.Group>
@@ -86,7 +84,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="address"
-                value={profile.address || ''} 
+                value={localProfile.address || ''} 
                 onChange={handleInputChange} 
               />
             </Form.Group>
@@ -95,7 +93,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="emergencyContacts"
-                value={profile.emergencyContacts || ''} 
+                value={localProfile.emergencyContacts || ''} 
                 onChange={handleInputChange} 
               />
             </Form.Group>
@@ -104,7 +102,7 @@ const EditProfile = () => {
               <Form.Control 
                 type="text" 
                 name="sin"
-                value={profile.sin || ''} 
+                value={localProfile.sin || ''} 
                 onChange={handleInputChange} 
               />
             </Form.Group>
