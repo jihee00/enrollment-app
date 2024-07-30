@@ -1,5 +1,6 @@
 // models/Student.js
 import mongoose from 'mongoose';
+import AcademicRecord from './AcademicRecord';
 
 const studentSchema = new mongoose.Schema({
   userName: { type: String, unique: true},
@@ -11,7 +12,8 @@ const studentSchema = new mongoose.Schema({
   emergencyContacts: { type: String },
   sin: { type: String},
   photo: { type: String },
-  schedule: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }]
+  schedule: [{ type: mongoose.Schema.Types.ObjectId, ref: 'Course' }],
+  courses: [AcademicRecord.schema]
 });
 
 export default mongoose.models.Student || mongoose.model('Student', studentSchema);

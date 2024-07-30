@@ -3,54 +3,48 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Card, Table, Button } from 'react-bootstrap';
 import Link from 'next/link';
+import axios from 'axios';
+import { useAuth } from '@/lib/authContext';
 
 const AcademicRecordsPage = () => {
-  const [records, setRecords] = useState([
-    {
-      id: 1,
-      class: 'MAP523',
-      description: 'Mobile App Dev-IOS',
-      term: 'Winter 2024',
-      grade: 'A+',
-      units: '3.00',
-      status: 'Taken',
-    },
-    {
-      id: 2,
-      class: 'MST300',
-      description: 'Intro to MS Cloud Technologies',
-      term: 'Winter 2024',
-      grade: 'A',
-      units: '3.00',
-      status: 'Taken',
-    },
-    {
-      id: 3,
-      class: 'WEB524',
-      description: 'Web Programming Using ASP.NET',
-      term: 'Winter 2024',
-      grade: 'A+',
-      units: '3.00',
-      status: 'Taken',
-    },
-  ]);
-
-  const [sortedRecords, setSortedRecords] = useState([]);
+  const { authenticated, userName } = useAuth();
+  const [records, setRecords] = useState([]);
 
   useEffect(() => {
-    sortRecordsBySemester();
-  }, []);
+    if (authenticated && userName) {
+      fetchAcademicRecords();
+    }
+  }, [authenticated, userName]);
 
-  const sortRecordsBySemester = () => {
-    const sorted = [...records].sort((a, b) => {
-      // Assuming 'term' is in the format 'Season Year', e.g., 'Winter 2024'
-      const termA = a.term.toLowerCase();
-      const termB = b.term.toLowerCase();
-      if (termA < termB) return -1;
-      if (termA > termB) return 1;
-      return 0;
+  const fetchAcademicRecords = async () => {
+    try {
+      const response = await axios.get('/api/students/academic-record', {
+        params: { userName }
+      });
+      if (response.data.success) {
+        const sortedRecords = sortRecordsBySemester(response.data.data.courses);
+        setRecords(sortedRecords);
+      }
+    } catch (error) {
+      console.error('Error fetching academic records:', error);
+    }
+  };
+
+  const sortRecordsBySemester = (recordsToSort) => {
+    const seasonOrder = {
+      fall: 1,
+      summer: 2,
+      winter: 3
+    };
+  
+    return [...recordsToSort].sort((a, b) => {
+      const [seasonA, yearA] = a.term.toLowerCase().split(' ');
+      const [seasonB, yearB] = b.term.toLowerCase().split(' ');
+      if (yearA !== yearB) {
+        return yearB - yearA; 
+      }
+      return seasonOrder[seasonA] - seasonOrder[seasonB];
     });
-    setSortedRecords(sorted);
   };
 
   return (
@@ -70,8 +64,8 @@ const AcademicRecordsPage = () => {
               </tr>
             </thead>
             <tbody>
-              {sortedRecords.map((record) => (
-                <tr key={record.id}>
+              {records.map((record, index) => (
+                <tr key={index}>
                   <td>{record.class}</td>
                   <td>{record.description}</td>
                   <td>{record.term}</td>
@@ -86,9 +80,6 @@ const AcademicRecordsPage = () => {
             <Link href="/academic-records/gpa-calculator" passHref>
               <Button className="btn-black mr-2">GPA Calculator</Button>
             </Link>
-            <Button className="btn-black" onClick={sortRecordsBySemester}>
-              Sort by Semester
-            </Button>
           </div>
         </Card.Body>
       </Card>

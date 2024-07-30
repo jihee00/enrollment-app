@@ -1,14 +1,288 @@
 [
   {
     "userName": "test@myseneca.ca",
-    "password": "$2a$10$imHGMfyBb27fmSLxq9nmCekMy0GVFYwfuIpNr/SSy9c.J02JIt0DO",
+    "password": "$2a$10$DQ4EtbnkEG.uk.2SrvNHIOH7DHXCfDeEPKTheRJMmKHKw6/fzyhrG",
     "name": "Emily Bennett",
     "studentId": "345678901",
     "phone": "647/123-1234",
     "address": "1750 Finch Ave E, North York, ON M2J 2X5",
     "emergencyContacts": "123/567-6789",
-    "sin": "987-456-789",
-    "photo": "https://storage.cloud.google.com/enrollment_app/profile1.png",
-    "schedule": []
+    "sin": "987-456-777",
+    "photo": "https://storage.googleapis.com/enrollment_app/profile1.png",
+    "schedule": [],
+    "courses": [
+          {
+              "class": "MAP 524",
+              "description": "Mobile App Development-Android",
+              "term": "Summer 2024",
+              "grade": "",
+              "units": 3.00,
+              "status": "In Progress"
+          },
+          {
+              "class": "PRJ 666",
+              "description": "Project Implementation",
+              "term": "Summer 2024",
+              "grade": "",
+              "units": 3.00,
+              "status": "In Progress"
+          },
+          {
+              "class": "UNX 510",
+              "description": "UNIX Bash Scripting",
+              "term": "Summer 2024",
+              "grade": "",
+              "units": 3.00,
+              "status": "In Progress"
+          },
+          {
+              "class": "MAP 523",
+              "description": "Mobile App Dev.-IOS",
+              "term": "Winter 2024",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "MST 300",
+              "description": "Intro to MS Cloud Technologies",
+              "term": "Winter 2024",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "WEB 524",
+              "description": "Web Programming Using ASP.NET",
+              "term": "Winter 2024",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "DSA 555",
+              "description": "Data Structures",
+              "term": "Winter 2023",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "LGE 001",
+              "description": "Modern Language Plmt Assessmnt",
+              "term": "Winter 2023",
+              "grade": "",
+              "units": "",
+              "status": "In Progress"
+          },
+          {
+              "class": "LGE 101",
+              "description": "French Language Skills 1",
+              "term": "Winter 2023",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "PRJ 566",
+              "description": "Project Planning and Mgmt",
+              "term": "Winter 2023",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "SDR 520",
+              "description": "Software Dsgn for Robotics App",
+              "term": "Winter 2023",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "BCI 433",
+              "description": "IBM Business Computing",
+              "term": "Fall 2022",
+              "grade": "B",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "EAC 594",
+              "description": "Comm Digital Workplace",
+              "term": "Fall 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "JAC 444",
+              "description": "Intro to Java C++",
+              "term": "Fall 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "SYS 466",
+              "description": "Analysis and Design",
+              "term": "Fall 2022",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "WEB 422",
+              "description": "Web Prog. Apps and Services",
+              "term": "Fall 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "WTP 100",
+              "description": "Work Term Preparation",
+              "term": "Fall 2022",
+              "grade": "SAT",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "DBS 301",
+              "description": "Database Design II and SQL",
+              "term": "Winter 2022",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "NAT 542",
+              "description": "The Blue Planet",
+              "term": "Winter 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "OOP 345",
+              "description": "Software Development Using C++",
+              "term": "Winter 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "SYS 366",
+              "description": "Req. Gath. Using OO Models",
+              "term": "Winter 2022",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "WEB 322",
+              "description": "Web Prog. Tools and Frameworks",
+              "term": "Winter 2022",
+              "grade": "B+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "COM 101",
+              "description": "Communicating Across Contexts",
+              "term": "Fall 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "DBS 201",
+              "description": "Intro to Database Dsgn and SQL",
+              "term": "Fall 2021",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "DCF 255",
+              "description": "Data Communications Fund.",
+              "term": "Fall 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "OOP 244",
+              "description": "Object Oriented Programming",
+              "term": "Fall 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "PSY 222",
+              "description": "Psychology of Happiness",
+              "term": "Fall 2021",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "WEB 222",
+              "description": "Web Programming Principles",
+              "term": "Fall 2021",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "APC 100",
+              "description": "Applied Prof. Communications",
+              "term": "Summer 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "CPR 101",
+              "description": "Comp. Principle for Programmer",
+              "term": "Summer 2021",
+              "grade": "A+",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "EAC 149",
+              "description": "English and Communications",
+              "term": "Summer 2021",
+              "grade": "SAT",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "IPC 144",
+              "description": "Intro to Programming Using C",
+              "term": "Summer 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          },
+          {
+              "class": "ULG 100",
+              "description": "Student Learning Group - ULI",
+              "term": "Summer 2021",
+              "grade": "",
+              "units": "",
+              "status": "In Progress"
+          },
+          {
+              "class": "ULI 101",
+              "description": "Intro UNIX/Linux and Internet",
+              "term": "Summer 2021",
+              "grade": "A",
+              "units": 3.00,
+              "status": "Taken"
+          }
+      ]
   }
 ]
