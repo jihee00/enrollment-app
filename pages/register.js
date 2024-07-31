@@ -1,20 +1,21 @@
-import { Card, Form, Alert, Button } from 'react-bootstrap';
+import { Card, Form, Alert, Button } from "react-bootstrap";
 import { useState } from "react";
-import { registerUser } from '@/lib/authenticate';
-import { useRouter } from 'next/router';
+import { registerUser } from "@/lib/authenticate";
+import { useRouter } from "next/router";
 
 export default function Register(props) {
   const [user, setUser] = useState("");
+  const [name, setName] = useState("");
   const [password, setPassword] = useState("");
-  const [password2, setPassword2] =useState("");
-  const [warning, setWarning] = useState('');
+  const [password2, setPassword2] = useState("");
+  const [warning, setWarning] = useState("");
   const router = useRouter();
-  
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await registerUser(user, password, password2);
-      router.push('/login');
+      await registerUser(user, name, password, password2);
+      router.push("/login");
     } catch (err) {
       setWarning(err.message);
     }
@@ -22,9 +23,9 @@ export default function Register(props) {
 
   return (
     <div className="d-flex justify-content-center align-items-center vh-100 bg-light">
-      <div style={{ width: '400px' }}>
+      <div style={{ width: "400px" }}>
         <Card className="mb-4">
-          <Card.Body className='text-center'>
+          <Card.Body className="text-center">
             <h2 className="mb-3">Register</h2>
             <p>Register for an account</p>
           </Card.Body>
@@ -38,6 +39,17 @@ export default function Register(props) {
               id="userName"
               name="userName"
               onChange={(e) => setUser(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="name">Input User's Name:</Form.Label>
+            <Form.Control
+              type="text"
+              value={name}
+              id="name"
+              name="name"
+              onChange={(e) => setName(e.target.value)}
               required
             />
           </Form.Group>
