@@ -8,7 +8,7 @@ export default async function handler(req, res) {
     return res.status(405).json({ message: "Method not allowed" });
   }
 
-  const { userName, name, password, password2 } = req.body;
+  const { userName, name, id, password, password2 } = req.body;
 
   if (!userName || !password || !password2 || !name) {
     return res.status(400).json({
@@ -36,11 +36,11 @@ export default async function handler(req, res) {
       userName: userName,
       password: hashedPassword,
       name: name,
-      address: "", // Optional
-      emergencyContacts: "", // Optional
-      phone: "", // Optional
-      sin: "", // Optional
-      studentId: "", // Optional
+      address: "",
+      emergencyContacts: "",
+      phone: "",
+      sin: "",
+      studentId: id,
       schedule: [], // Empty array
       courses: [], // Empty array
     });

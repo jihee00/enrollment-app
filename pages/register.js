@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 export default function Register(props) {
   const [user, setUser] = useState("");
   const [name, setName] = useState("");
+  const [id, setId] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
   const [warning, setWarning] = useState("");
@@ -14,7 +15,7 @@ export default function Register(props) {
   async function handleSubmit(e) {
     e.preventDefault();
     try {
-      await registerUser(user, name, password, password2);
+      await registerUser(user, name, id, password, password2);
       router.push("/login");
     } catch (err) {
       setWarning(err.message);
@@ -50,6 +51,17 @@ export default function Register(props) {
               id="name"
               name="name"
               onChange={(e) => setName(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3">
+            <Form.Label htmlFor="name">Input Id:</Form.Label>
+            <Form.Control
+              type="text"
+              value={id}
+              id="id"
+              name="id"
+              onChange={(e) => setId(e.target.value)}
               required
             />
           </Form.Group>
