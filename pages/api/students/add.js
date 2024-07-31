@@ -35,7 +35,7 @@ export default async function handler(req, res) {
     const student = new Student({
       userName: userName,
       password: hashedPassword,
-      name: name,
+      name: "",
       address: "", // Optional
       emergencyContacts: "", // Optional
       phone: "", // Optional
