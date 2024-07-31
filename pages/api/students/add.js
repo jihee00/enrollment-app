@@ -39,6 +39,7 @@ export default async function handler(req, res) {
       address: "",
       emergencyContacts: "",
       phone: "",
+      photo: "",
       sin: "",
       studentId: id,
       schedule: [], // Empty array
