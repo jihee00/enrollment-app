@@ -11,7 +11,9 @@ export default function ManageSchedule() {
   const [selectedSection, setSelectedSection] = useState("");
   const [availability, setAvailability] = useState(null);
   const [eligibility, setEligibility] = useState(null);
-  const [sections, setSections] = useState([]);
+  const [sectionCode, setSectionCode] = useState('');
+  const [day, setDay] = useState('');
+  const [timeframe, setTimeframe] = useState('');
 
   useEffect(() => {
     async function fetchData() {
@@ -119,6 +121,7 @@ export default function ManageSchedule() {
     }
   };
 
+
   return (
     <div className={styles.container}>
       <div className={styles.leftColumn}>
@@ -210,15 +213,8 @@ export default function ManageSchedule() {
             </ul>
           </div>
         )}
-
-        {availability === false && (
-          <p className={styles.error}>The selected course is not available.</p>
-        )}
-        {eligibility === false && (
-          <p className={styles.error}>
-            The student is not eligible for the selected course.
-          </p>
-        )}
+        {availability === false && <p className={styles.error}>The selected course is not available.</p>}
+        {eligibility === false && <p className={styles.error}>The student is not eligible for the selected course.</p>}
       </div>
     </div>
   );
