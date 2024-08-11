@@ -63,6 +63,7 @@ export default function MainNav() {
                                 <Dropdown.Item href="/profile">Your Profile</Dropdown.Item>
                                 <Dropdown.Item href="/profile/edit">Edit Profile</Dropdown.Item>
                                 <Dropdown.Item href="/advisor">Advisor</Dropdown.Item>
+                                <Dropdown.Item href="/">Home</Dropdown.Item>
                                 <Dropdown.Item onClick={handleSignOut}>Sign Out</Dropdown.Item>
                             </Dropdown.Menu>
                         </Dropdown>

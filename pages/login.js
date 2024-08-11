@@ -19,7 +19,7 @@ export default function LoginPage() {
             const result = await authenticateUser(username, password);
             console.log('Authentication result:', result); // Debugging log
             setAuthenticated(true);
-            router.push('/profile'); // Redirect to profile page on successful login
+            router.push('/'); // Redirect to profile page on successful login
         } catch (err) {
             console.error('Error during login:', err); // Debugging log
             setWarning(err.message);

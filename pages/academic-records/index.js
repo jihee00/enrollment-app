@@ -52,7 +52,17 @@ const AcademicRecordsPage = () => {
   };
 
   if (isLoading) {
-    return <Loading />;
+    return (
+      <div className="d-flex justify-content-center mt-3">
+        <span>
+          <h1>No Records to Display !</h1>
+        </span>
+            
+            <Link href="/academic-records/gpa-calculator" passHref>
+              <Button className="btn-black mr-2">GPA Calculator</Button>
+            </Link>
+      </div>
+    );
   }
 
   return (
